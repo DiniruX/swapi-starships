@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axiosInstance from "../Interceptors/AxiosInstance";
 import { useLocation } from "react-router-dom";
 import loader from "../loader1.gif";
+import InfoElement from "../Components/InfoElement";
 
 function StarshipInfo() {
   const location = useLocation();
@@ -74,54 +75,19 @@ function StarshipInfo() {
         ) : (
           <div className="flex flex-col md:flex-row">
             <div className="w-full md:w-1/2 mt-4 md:border-r">
-              <div className="border border-gray-400 rounded-md my-2 mx-4 px-4 py-2 bg-gray-200 text-sm md:text-md">
-                <span className="capitalize font-semibold">Name - </span>
-                {starship.name}
-              </div>
-              <div className="border border-gray-400 rounded-md my-2 mx-4 px-4 py-2 bg-gray-200 text-sm md:text-md">
-                <span className="capitalize font-semibold">Model - </span>
-                {starship.model}
-              </div>
-              <div className="border border-gray-400 rounded-md my-2 mx-4 px-4 py-2 bg-gray-200 text-sm md:text-md">
-                <span className="capitalize font-semibold">passengers - </span>
-                {starship.passengers}
-              </div>
-              <div className="border border-gray-400 rounded-md my-2 mx-4 px-4 py-2 bg-gray-200 text-sm md:text-md">
-                <span className="capitalize font-semibold">class - </span>
-                {starship.starship_class}
-              </div>
-              <div className="border border-gray-400 rounded-md my-2 mx-4 px-4 py-2 bg-gray-200 text-sm md:text-md">
-                <span className="capitalize font-semibold">max atmosphering speed - </span>
-                {starship.max_atmosphering_speed}
-              </div>
-              <div className="border border-gray-400 rounded-md my-2 mx-4 px-4 py-2 bg-gray-200 text-sm md:text-md">
-                <span className="capitalize font-semibold">length - </span>
-                {starship.length}
-              </div>
-              <div className="border border-gray-400 rounded-md my-2 mx-4 px-4 py-2 bg-gray-200 text-sm md:text-md">
-                <span className="capitalize font-semibold">hyperdrive rating - </span>
-                {starship.hyperdrive_rating}
-              </div>
-              <div className="border border-gray-400 rounded-md my-2 mx-4 px-4 py-2 bg-gray-200 text-sm md:text-md">
-                <span className="capitalize font-semibold">crew - </span>
-                {starship.crew}
-              </div>
-              <div className="border border-gray-400 rounded-md my-2 mx-4 px-4 py-2 bg-gray-200 text-sm md:text-md">
-                <span className="capitalize font-semibold">cost in credits - </span>
-                {starship.cost_in_credits}
-              </div>
-              <div className="border border-gray-400 rounded-md my-2 mx-4 px-4 py-2 bg-gray-200 text-sm md:text-md">
-                <span className="capitalize font-semibold">consumables - </span>
-                {starship.consumables}
-              </div>
-              <div className="border border-gray-400 rounded-md my-2 mx-4 px-4 py-2 bg-gray-200 text-sm md:text-md">
-                <span className="capitalize font-semibold">cargo capacity - </span>
-                {starship.cargo_capacity}
-              </div>
-              <div className="border border-gray-400 rounded-md my-2 mx-4 px-4 py-2 bg-gray-200 text-sm md:text-md">
-                <span className="capitalize font-semibold">MGLT - </span>
-                {starship.MGLT}
-              </div>
+              <InfoElement title="Name" body={starship.name} type="text" />
+              <InfoElement title="Model" body={starship.model} type="text" />
+              <InfoElement title="Manufacturer" body={starship.manufacturer} type="text" />
+              <InfoElement title="passengers" body={starship.passengers} type="text" />
+              <InfoElement title="class" body={starship.starship_class} type="text" />
+              <InfoElement title="max atmosphering speed" body={starship.max_atmosphering_speed} type="text" />
+              <InfoElement title="length" body={starship.length} type="text" />
+              <InfoElement title="hyperdrive rating" body={starship.hyperdrive_rating} type="text" />
+              <InfoElement title="crew" body={starship.crew} type="text" />
+              <InfoElement title="cost in credits" body={starship.cost_in_credits} type="text" />
+              <InfoElement title="consumables" body={starship.consumables} type="text" />
+              <InfoElement title="cargo capacity" body={starship.cargo_capacity} type="text" />
+              <InfoElement title="MGLT" body={starship.MGLT} type="text" />
               <div className="border border-gray-400 rounded-md my-2 mx-4 px-4 py-2 bg-gray-200 text-sm md:text-md">
                 <span className="capitalize font-semibold">films - </span>
                 <div className="flex gap-1">
@@ -156,82 +122,36 @@ function StarshipInfo() {
                 </div>
               ) : (
                 <div>
-                  {item.name && (
-                    <div className="border border-gray-400 rounded-md my-2 mx-4 px-4 py-2 bg-gray-200 text-sm md:text-md">
-                      <span className="capitalize font-semibold">name - </span>
-                      {item.name}
-                    </div>
-                  )}
-                  {item.height && (
-                    <div className="border border-gray-400 rounded-md my-2 mx-4 px-4 py-2 bg-gray-200 text-sm md:text-md">
-                      <span className="capitalize font-semibold">height - </span>
-                      {item.height}
-                    </div>
-                  )}
-                  {item.mass && (
-                    <div className="border border-gray-400 rounded-md my-2 mx-4 px-4 py-2 bg-gray-200 text-sm md:text-md">
-                      <span className="capitalize font-semibold">mass - </span>
-                      {item.mass}
-                    </div>
-                  )}
-                  {item.birth_year && (
-                    <div className="border border-gray-400 rounded-md my-2 mx-4 px-4 py-2 bg-gray-200 text-sm md:text-md">
-                      <span className="capitalize font-semibold">birth year - </span>
-                      {item.birth_year}
-                    </div>
-                  )}
-                  {item.eye_color && (
-                    <div className="border border-gray-400 rounded-md my-2 mx-4 px-4 py-2 bg-gray-200 text-sm md:text-md">
-                      <span className="capitalize font-semibold">eye color - </span>
-                      {item.eye_color}
-                    </div>
-                  )}
-                  {item.gender && (
-                    <div className="border border-gray-400 rounded-md my-2 mx-4 px-4 py-2 bg-gray-200 text-sm md:text-md">
-                      <span className="capitalize font-semibold">gender - </span>
-                      {item.gender}
-                    </div>
-                  )}
-                  {item.hair_color && (
-                    <div className="border border-gray-400 rounded-md my-2 mx-4 px-4 py-2 bg-gray-200 text-sm md:text-md">
-                      <span className="capitalize font-semibold">hair color - </span>
-                      {item.hair_color}
-                    </div>
-                  )}
+                  {item.name && <InfoElement title="Name" body={item.name} type="text" />}
+                  {item.height && <InfoElement title="Height" body={item.height} type="text" />}
+                  {item.mass && <InfoElement title="Mass" body={item.mass} type="text" />}
+                  {item.birth_year && <InfoElement title="Birth Year" body={item.birth_year} type="text" />}
+                  {item.eye_color && <InfoElement title="Eye Color" body={item.eye_color} type="text" />}
+                  {item.gender && <InfoElement title="gender" body={item.gender} type="text" />}
+                  {item.hair_color && <InfoElement title="Hair Color" body={item.hair_color} type="text" />}
                   {item.homeworld && (
                     <div className="border border-gray-400 rounded-md my-2 mx-4 px-4 py-2 bg-gray-200 text-sm md:text-md">
-                      <span className="capitalize font-semibold">homeworld - </span>
-                      {item.homeworld}
+                      <span className="capitalize font-semibold">Homeworld - </span>
+                      <a
+                        href={item.homeworld}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="cursor-pointer border rounded-sm bg-gray-600 text-white hover:bg-gray-800 hover:shadow px-1"
+                      >
+                        Homeworld
+                      </a>
                     </div>
                   )}
-                  {item.skin_color && (
-                    <div className="border border-gray-400 rounded-md my-2 mx-4 px-4 py-2 bg-gray-200 text-sm md:text-md">
-                      <span className="capitalize font-semibold">skin color - </span>
-                      {item.skin_color}
-                    </div>
-                  )}
-
-                  {item.title && (
-                    <div className="border border-gray-400 rounded-md my-2 mx-4 px-4 py-2 bg-gray-200 text-sm md:text-md">
-                      <span className="capitalize font-semibold">title - </span>
-                      {item.title}
-                    </div>
-                  )}
-                  {item.director && (
-                    <div className="border border-gray-400 rounded-md my-2 mx-4 px-4 py-2 bg-gray-200 text-sm md:text-md">
-                      <span className="capitalize font-semibold">director - </span>
-                      {item.director}
-                    </div>
-                  )}
-                  {item.producer && (
-                    <div className="border border-gray-400 rounded-md my-2 mx-4 px-4 py-2 bg-gray-200 text-sm md:text-md">
-                      <span className="capitalize font-semibold">producer - </span>
-                      {item.producer}
-                    </div>
-                  )}
+                  {item.skin_color && <InfoElement title="Skin color" body={item.skin_color} type="text" />}
+                  {item.title && <InfoElement title="Title" body={item.title} type="text" />}
+                  {item.director && <InfoElement title="Director" body={item.director} type="text" />}
+                  {item.producer && <InfoElement title="Producer" body={item.producer} type="text" />}
                   {item.characters && (
                     <div className="border border-gray-400 rounded-md my-2 mx-4 px-4 py-2 bg-gray-200 text-sm md:text-md">
                       <span className="capitalize font-semibold">characters - </span>
+                      {item.characters.length === 0 ? (
+                        <span className="capitalize">no characters</span>
+                      ) : (
                       <div className="flex flex-wrap">
                         {item.characters.map((character, index) => (
                           <a
@@ -245,20 +165,11 @@ function StarshipInfo() {
                           </a>
                         ))}
                       </div>
+                      )}
                     </div>
                   )}
-                  {item.episode_id && (
-                    <div className="border border-gray-400 rounded-md my-2 mx-4 px-4 py-2 bg-gray-200 text-sm md:text-md">
-                      <span className="capitalize font-semibold">episode id - </span>
-                      {item.episode_id}
-                    </div>
-                  )}
-                  {item.opening_crawl && (
-                    <div className="border border-gray-400 rounded-md my-2 mx-4 px-4 py-2 bg-gray-200 text-sm md:text-md">
-                      <span className="capitalize font-semibold">opening crawl - </span>
-                      {item.opening_crawl}
-                    </div>
-                  )}
+                  {item.episode_id && <InfoElement title="Episode ID" body={item.episode_id} type="text" />}
+                  {item.opening_crawl && <InfoElement title="Opening Crawl" body={item.opening_crawl} type="text" />}
                   {item.planets && (
                     <div className="border border-gray-400 rounded-md my-2 mx-4 px-4 py-2 bg-gray-200 text-sm md:text-md">
                       <span className="capitalize font-semibold">planets - </span>
@@ -277,15 +188,13 @@ function StarshipInfo() {
                       </div>
                     </div>
                   )}
-                  {item.release_date && (
-                    <div className="border border-gray-400 rounded-md my-2 mx-4 px-4 py-2 bg-gray-200 text-sm md:text-md">
-                      <span className="capitalize font-semibold">release date - </span>
-                      {item.release_date}
-                    </div>
-                  )}
+                  {item.release_date && <InfoElement title="Release Date" body={item.release_date} type="text" />}
                   {item.species && (
                     <div className="border border-gray-400 rounded-md my-2 mx-4 px-4 py-2 bg-gray-200 text-sm md:text-md">
                       <span className="capitalize font-semibold">spacies - </span>
+                      {item.species.length === 0 ? (
+                        <span className="capitalize">no species</span>
+                      ) : (
                       <div className="flex flex-wrap">
                         {item.species.map((specie, index) => (
                           <a
@@ -299,11 +208,15 @@ function StarshipInfo() {
                           </a>
                         ))}
                       </div>
+                      )}
                     </div>
                   )}
                   {item.starships && (
                     <div className="border border-gray-400 rounded-md my-2 mx-4 px-4 py-2 bg-gray-200 text-sm md:text-md">
                       <span className="capitalize font-semibold">starships - </span>
+                      {item.starships.length === 0 ? (
+                        <span className="capitalize">no starships</span>
+                      ) : (
                       <div className="flex flex-wrap">
                         {item.starships.map((starship, index) => (
                           <a
@@ -317,11 +230,15 @@ function StarshipInfo() {
                           </a>
                         ))}
                       </div>
+                      )}
                     </div>
                   )}
                   {item.vehicles && (
                     <div className="border border-gray-400 rounded-md my-2 mx-4 px-4 py-2 bg-gray-200 text-sm md:text-md">
                       <span className="capitalize font-semibold">vehicles - </span>
+                      {item.vehicles.length === 0 ? (
+                        <span className="capitalize">no vehicles</span>
+                      ) : (
                       <div className="flex flex-wrap">
                         {item.vehicles.map((vehicle, index) => (
                           <a
@@ -335,6 +252,7 @@ function StarshipInfo() {
                           </a>
                         ))}
                       </div>
+                      )}
                     </div>
                   )}
                 </div>
